@@ -1,11 +1,190 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRoboto+Slab%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CPlus+Jakarta+Sans%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&display=swap
+    ">
+
+
     <title>Document</title>
+    <style>
+        .grid-mouse-miv {
+            display: flex;
+            height: 500px;
+            flex-basis: fit-content;
+            gap: 1em;
+        }
+
+        .background-custom p,
+        .background-custom h1 {
+            font-family: "Plus Jakarta Sans", Sans-serif;
+        }
+
+        .background-custom {
+            height: 100%;
+            width: 17%;
+            transition: width 0.3s ease;
+            /* Transição suave para a largura */
+            cursor: pointer;
+            /* Cursor de ponteiro ao passar o mouse */
+            border-radius: 30px;
+            background-size: cover;
+            /* Cobrir todo o espaço */
+            background-position: center;
+            /* Centralizar a imagem */
+            background-repeat: no-repeat;
+            /* Não repetir a imagem */
+            display: flex;
+            flex-direction: column;
+            justify-content: end;
+            padding: 1em;
+        }
+
+        .background-custom.active {
+            width: 32%;
+            /* Largura aumentada quando ativo */
+
+
+        }
+
+        .background-custom p , .background-custom .title{
+            display: none;
+            transition: opacity 1s ease;
+            /* Transição suave para a opacidade */
+            opacity: 0;
+            /* Começa invisível */
+
+        }
+        .background-custom p{
+            font-size: 0.85em;
+        }
+
+        .background-custom.active p, .background-custom.active .title {
+            display: block;
+            opacity: 1;
+            /* Torna visível */
+            transition: opacity 1s ease;
+            /* Transição suave para a opacidade */
+
+        }
+        .background-custom.active .rotate {
+            display: none;
+        }
+
+        .background-custom.active .rotate {
+
+            animation: revealText 0.5s ease forwards;
+            /* Animação para revelar o texto */
+            transform: rotate(-90deg);
+            /* Rotaciona o texto */
+        
+          
+
+        }
+
+        .background-custom .rotate {
+            transform: rotate(-90deg);
+            padding-top: 20px;
+            /* Rotaciona o texto */
+            transform-origin: left;
+           
+
+        }
+
+        @keyframes revealText {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .background-custom h1,
+        .background-custom p {
+            color: white;
+        }
+
+        .img-1 {
+            background-image: url('./Image-1.png');
+        }
+
+        .img-2 {
+            background-image: url('./Image-2.png');
+        }
+
+        .img-3 {
+            background-image: url('./Image-3.png');
+        }
+
+        .img-4 {
+            background-image: url('./Image-4.png');
+        }
+
+        .img-5 {
+            background-image: url('./Image-5.png');
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const backgroundDivs = document.querySelectorAll('.background-custom');
+
+            backgroundDivs.forEach(div => {
+                div.addEventListener('mouseover', function () {
+                    // Remove a classe active de todas as divs
+                    backgroundDivs.forEach(div => {
+                        div.classList.remove('active');
+                    });
+                    // Adiciona a classe active apenas na div atual
+                    div.classList.add('active');
+                });
+            });
+        });
+    </script>
 </head>
+
 <body>
-    
+    <section class="grid-mouse-miv">
+        <div class="background-custom img-1">
+            <h1 class="rotate">Manutenção</h1>
+            <h1 class="title">Manutenção</h1>
+            <p>O Manejo Integrado de Vegetação (MIV) oferece uma abordagem eficiente para a manutenção de áreas críticas, como linhas de transmissão e subestações elétricas. 
+                Com a aplicação do MIV, a necessidade de intervenções frequentes é significativamente reduzida. O manejo da vegetação é realizado de maneira precisa e eficaz, 
+                resultando em menos trabalho e custos ao longo do tempo. Reduz o risco de incêndios, 
+                queda de galhos ou árvores. Além disso, a manutenção da área é necessária apenas a cada dois anos, com o equilíbrio da vegetação.</p>
+        </div>
+        <div class="background-custom img-2">
+
+            <h1 class="rotate">Regulatórios</h1>
+            <h1 class="title">Regulatórios</h1>
+            <p>A metodologia do MIV aplicada pela Biochess é reconhecida pelo IBAMA. Os herbicidas utilizados no processo são Não Agrícolas e devidamente registrados nos órgãos federais. 
+                Isso garante que as práticas de manejo estejam em conformidade com as legislações ambientais estaduais e nacionais, 
+                proporcionando segurança e tranquilidade para as empresas que adotam o MIV..</p>
+        </div>
+        <div class="background-custom img-3 active">
+            <h1 class="rotate">Economia</h1>
+            <h1 class="title">Economia</h1>
+            <p>A aplicação do MIV resulta em uma significativa redução de custos com a manutenção de vegetação. Após três anos de aplicação do MIV, os custos com mão de obra e 
+                manutenção podem ser reduzidos em até 70%. 
+                Esse benefício econômico é especialmente vantajoso para empresas que buscam soluções de gestão sustentável e custo-efetiva.</p>
+        </div>
+        <div class="background-custom img-4">
+            <h1 class="rotate">Ambientais</h1>
+            <h1 class="title">Ambientais</h1>
+            <p>O MIV promove a preservação da biodiversidade e da mata nativa ao controlar apenas as plantas que representam um risco para as instalações elétricas. Isso favorece o desenvolvimento de vegetação estável e diversificada, criando corredores ecológicos que facilitam a passagem de animais. A metodologia também previne a erosão do solo e reduz a emissão de gases de efeito estufa, contribuindo para um ambiente mais saudável e equilibrado.</p>
+        </div>
+        <div class="background-custom img-5">
+            <h1 class="rotate">Sociais</h1>
+            <h1 class="title">Sociais</h1>
+
+            <p>Os benefícios sociais do MIV incluem a geração de emprego nas áreas de atuação e a preservação de mananciais e Áreas de Preservação Permanente (APPs) próximas. 
+                A redução do risco de acidentes de trabalho e de interrupções no fornecimento de energia elétrica traz segurança e estabilidade para as comunidades. 
+                Além disso, o MIV ajuda a evitar multas e penalidades decorrentes de desligamentos indevidos, beneficiando tanto as empresas quanto a sociedade em geral.</p>
+        </div>
+    </section>
 </body>
+
 </html>
